@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxqlfeekmtwm0"]
+[gd_scene load_steps=2 format=3 uid="uid://dxqlfeekmtwm0"]
 
-[ext_resource type="PackedScene" uid="uid://bfd8y7t8ai7od" path="res://entries/player/player.tscn" id="1_v8ljv"]
 [ext_resource type="PackedScene" uid="uid://dhoqdktma67xj" path="res://entries/enemy/slime/slime.tscn" id="2_owgu0"]
 
 [node name="Test" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_v8ljv")]
-position = Vector2(161, 105)
 
 [node name="Slime" parent="." instance=ExtResource("2_owgu0")]
 position = Vector2(84, 89)
