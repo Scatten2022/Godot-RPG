@@ -3,18 +3,21 @@ extends State
 
 @export var player: CharacterBody2D
 
-var move_speed: float = 30
+var walk_speed: float = 50
+var run_speed: float = 100
 
 func Physics_update(delta: float) -> void:
 	var direction_x: float = Input.get_axis("move_left", "move_right")
 	var direction_y: float = Input.get_axis("move_up", "move_down")
 	var direction: Vector2 = Vector2(direction_x, direction_y).normalized()
+	var is_running: bool = Input.is_action_pressed("speed_up")
 	if direction.length() == 0:
 		Transitioned.emit(self, "playeridle")
 		return
 	
 	if player:
-		player.velocity = direction * move_speed
+		player.velocity = direction * (walk_speed if not is_running else run_speed)
+		player.animation_player.set_speed_scale(1.0 if not is_running else 1.5)
 		if direction_x != 0:
 			player.animation_player.play("move_side")
 			player.graphics.scale.x = 1 if player.velocity.x >= 0 else -1

@@ -13,6 +13,7 @@ func Physics_update(delta: float) -> void:
 		return
 	
 	if player:
+		player.animation_player.set_speed_scale(1.0)
 		if player.previous_direction.x != 0:
 			player.animation_player.play("idle_side")
 		else:

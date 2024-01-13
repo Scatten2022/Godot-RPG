@@ -474,8 +474,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 6
-platform_floor_layers = 4294967288
+y_sort_enabled = true
+collision_mask = 7
+motion_mode = 1
 script = ExtResource("1_vbk82")
 
 [node name="Graphics" type="Node2D" parent="."]
