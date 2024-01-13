@@ -5,6 +5,7 @@
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
+platform_floor_layers = 4294967288
 script = ExtResource("1_rusa7")
 
 [node name="Graphics" type="Node2D" parent="."]
