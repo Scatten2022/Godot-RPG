@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnqn6bw8fcilo"]
+[gd_scene load_steps=5 format=3 uid="uid://cnqn6bw8fcilo"]
 
 [ext_resource type="Script" path="res://entries/enemy/enemy.gd" id="1_rusa7"]
+[ext_resource type="Script" path="res://entries/classes/hit_box/HitBox.gd" id="2_txl4x"]
+[ext_resource type="Script" path="res://entries/classes/hurt_box/HurtBox.gd" id="3_gw25y"]
+[ext_resource type="Script" path="res://entries/classes/stats/Stats.gd" id="4_trsda"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 7
@@ -13,6 +16,19 @@ script = ExtResource("1_rusa7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Graphics"]
 
+[node name="HitBox" type="Area2D" parent="Graphics"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_txl4x")
+
+[node name="HurtBox" type="Area2D" parent="Graphics"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_gw25y")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("4_trsda")
