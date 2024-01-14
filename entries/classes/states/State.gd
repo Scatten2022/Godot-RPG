@@ -3,7 +3,7 @@ extends Node
 
 signal Transitioned
 
-func Enter() -> void:
+func Enter(state: StringName) -> void:
 	pass
 
 func Exit() -> void:

@@ -1,11 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhoqdktma67xj"]
+[gd_scene load_steps=22 format=3 uid="uid://dhoqdktma67xj"]
 
 [ext_resource type="PackedScene" uid="uid://cnqn6bw8fcilo" path="res://entries/enemy/enemy.tscn" id="1_570ge"]
 [ext_resource type="Texture2D" uid="uid://buaxyq6htsyg0" path="res://assets/pic/slime.png" id="2_k6hny"]
 [ext_resource type="Script" path="res://entries/enemy/slime/slime.gd" id="2_t5fx0"]
-[ext_resource type="Script" path="res://entries/states/StateMachine.gd" id="4_ovvsn"]
+[ext_resource type="Script" path="res://entries/classes/states/StateMachine.gd" id="4_ovvsn"]
 [ext_resource type="Script" path="res://entries/enemy/slime/state/slime_move.gd" id="5_ak43h"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/smile_idle.gd" id="6_xg18b"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_idle.gd" id="6_xg18b"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_follow.gd" id="7_dhfd2"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_base_state.gd" id="8_hgd5e"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_attack.gd" id="9_ek1bn"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_hit.gd" id="10_eyffd"]
+[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_die.gd" id="11_twb0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j72il"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xftci"]
+radius = 6.08276
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_caed2"]
 radius = 5.0
@@ -72,6 +83,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, -7)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lps5n"]
 resource_name = "attack"
@@ -135,6 +158,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_nvjuo"]
@@ -200,6 +235,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, -7)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_l3fea"]
 resource_name = "hit"
@@ -263,6 +310,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_xybn2"]
@@ -343,6 +402,18 @@ tracks/5/keys = {
 "method": &"_process_last_frame_of_loop_animation"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_x58ri"]
 resource_name = "move"
@@ -422,6 +493,18 @@ tracks/5/keys = {
 "method": &"_process_last_frame_of_loop_animation"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Graphics/HitBox/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1jx0s"]
 _data = {
@@ -433,7 +516,7 @@ _data = {
 "move": SubResource("Animation_x58ri")
 }
 
-[node name="Slime" instance=ExtResource("1_570ge")]
+[node name="Slime" groups=["Slime"] instance=ExtResource("1_570ge")]
 script = ExtResource("2_t5fx0")
 
 [node name="Sprite2D" parent="Graphics" index="0"]
@@ -442,6 +525,15 @@ texture = ExtResource("2_k6hny")
 hframes = 4
 region_enabled = true
 region_rect = Rect2(0, 0, 128, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/HitBox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_j72il")
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Graphics/HurtBox" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_xftci")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -5)
@@ -463,3 +555,28 @@ slime = NodePath("../..")
 [node name="SlimeIdle" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("slime")]
 script = ExtResource("6_xg18b")
 slime = NodePath("../..")
+
+[node name="SlimeFollow" type="Node" parent="StateMachine" index="2" node_paths=PackedStringArray("slime")]
+script = ExtResource("7_dhfd2")
+slime = NodePath("../..")
+
+[node name="SlimeBaseState" type="Node" parent="StateMachine" index="3" node_paths=PackedStringArray("slime")]
+script = ExtResource("8_hgd5e")
+slime = NodePath("../..")
+
+[node name="SlimeAttack" type="Node" parent="StateMachine" index="4" node_paths=PackedStringArray("slime")]
+script = ExtResource("9_ek1bn")
+slime = NodePath("../..")
+
+[node name="SlimeHit" type="Node" parent="StateMachine" index="5" node_paths=PackedStringArray("slime")]
+script = ExtResource("10_eyffd")
+slime = NodePath("../..")
+
+[node name="SlimeDie" type="Node" parent="StateMachine" index="6" node_paths=PackedStringArray("slime")]
+script = ExtResource("11_twb0b")
+slime = NodePath("../..")
+
+[node name="Stats" parent="." index="4"]
+max_health = 5
+
+[connection signal="hurt" from="Graphics/HurtBox" to="." method="_on_hurt_box_hurt"]

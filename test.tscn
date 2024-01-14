@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxqlfeekmtwm0"]
+[gd_scene load_steps=11 format=3 uid="uid://dxqlfeekmtwm0"]
 
 [ext_resource type="Texture2D" uid="uid://mjc78ipux2sj" path="res://assets/pic/grass.png" id="1_bfhda"]
+[ext_resource type="Script" path="res://test.gd" id="1_c4jlw"]
 [ext_resource type="PackedScene" uid="uid://bfd8y7t8ai7od" path="res://entries/player/player.tscn" id="1_v8ljv"]
 [ext_resource type="PackedScene" uid="uid://dhoqdktma67xj" path="res://entries/enemy/slime/slime.tscn" id="2_owgu0"]
 [ext_resource type="Texture2D" uid="uid://bf88rovpne1jb" path="res://assets/pic/objects.png" id="2_xk6ej"]
@@ -433,6 +434,7 @@ sources/1 = SubResource("TileSetAtlasSource_r4dpn")
 sources/2 = SubResource("TileSetAtlasSource_m3ry1")
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_c4jlw")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7bmh5")
@@ -446,3 +448,5 @@ collision_mask = 5
 
 [node name="Player" parent="." instance=ExtResource("1_v8ljv")]
 position = Vector2(202, 153)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

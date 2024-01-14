@@ -4,6 +4,14 @@ extends State
 @export var player: CharacterBody2D
 
 
+func Enter(state: StringName) -> void:
+	if player:
+		player.animation_player.set_speed_scale(1.0)
+		if player.previous_direction.x != 0:
+			player.animation_player.play("idle_side")
+		else:
+			player.animation_player.play("idle_up" if player.previous_direction.y < 0 else "idle_down")
+
 func Physics_update(delta: float) -> void:
 	var direction_x: float = Input.get_axis("move_left", "move_right")
 	var direction_y: float = Input.get_axis("move_up", "move_down")
@@ -11,13 +19,10 @@ func Physics_update(delta: float) -> void:
 	if direction.length() > 0:
 		Transitioned.emit(self, "playermove")
 		return
+	if Input.is_action_pressed("attack"):
+		Transitioned.emit(self, "playerattack")
+		return
 	
-	if player:
-		player.animation_player.set_speed_scale(1.0)
-		if player.previous_direction.x != 0:
-			player.animation_player.play("idle_side")
-		else:
-			player.animation_player.play("idle_up" if player.previous_direction.y < 0 else "idle_down")
-		player.velocity = Vector2.ZERO
-		player.move_and_slide()
+	player.velocity = Vector2.ZERO
+	player.move_and_slide()
 
