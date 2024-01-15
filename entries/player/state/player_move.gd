@@ -1,13 +1,15 @@
 class_name PlayerMove
-extends State
-
-@export var player: CharacterBody2D
+extends PlayerBaseState
 
 var walk_speed: float = 50
 var run_speed: float = 100
 
 
+func Enter(state: StringName) -> void:
+	super.SetChildState(self)
+
 func Physics_update(delta: float) -> void:
+	#super.Physics_update(delta)
 	if Input.is_action_pressed("attack"):
 		Transitioned.emit(self, "playerattack")
 		return
@@ -21,6 +23,10 @@ func Physics_update(delta: float) -> void:
 		return
 	
 	if player:
+		if player.pending_damage and child_state.name.to_lower() != "playerhurt":
+			Transitioned.emit(child_state, "playerhurt")
+			return
+		
 		player.velocity = direction * (walk_speed if not is_running else run_speed)
 		player.animation_player.set_speed_scale(1.0 if not is_running else 1.5)
 		if direction_x != 0:
