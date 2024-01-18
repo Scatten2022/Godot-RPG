@@ -10,6 +10,8 @@ var count: int = 0
 @onready var state_machine: Node = $StateMachine
 @onready var invincible_timer: Timer = $InvincibleTimer
 @onready var stats: Stats = $Stats
+@onready var float_damage_position: Marker2D = $FloatDamagePosition
+@onready var float_damage_player: Node = $FloatDamagePlayer
 
 signal shake_camera(time: float, x_offset: float, y_offset: float)
 
@@ -29,6 +31,7 @@ func _on_hurt_box_hurt(hit_box: HitBox) -> void:
 	pending_damage = Damage.new()
 	pending_damage.amount = 5
 	pending_damage.source = hit_box.owner
+	float_damage_player.display_damage_number(pending_damage.amount, float_damage_position.global_position, Color.BLUE)
 	shake_camera.emit()
 
 

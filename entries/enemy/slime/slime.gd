@@ -15,3 +15,4 @@ func _on_hurt_box_hurt(hit_box: HitBox) -> void:
 	pending_damage = Damage.new()
 	pending_damage.amount = 1
 	pending_damage.source = hit_box.owner
+	float_damage_player.display_damage_number(pending_damage.amount, float_damage_position.global_position, Color.GOLD)

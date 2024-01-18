@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bfd8y7t8ai7od"]
+[gd_scene load_steps=36 format=3 uid="uid://bfd8y7t8ai7od"]
 
 [ext_resource type="Texture2D" uid="uid://cjjbw1e8641j2" path="res://assets/pic/player.png" id="1_acf4d"]
 [ext_resource type="Script" path="res://entries/player/player.gd" id="1_vbk82"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://entries/classes/stats/Stats.gd" id="10_dju1o"]
 [ext_resource type="Script" path="res://entries/player/state/player_hurt.gd" id="11_uag4r"]
 [ext_resource type="Script" path="res://entries/player/state/player_die.gd" id="12_j53qb"]
+[ext_resource type="Script" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="14_6jg58"]
+[ext_resource type="FontFile" uid="uid://bestxwjeef6j5" path="res://assets/font/Xolonium-Regular.otf" id="15_7cd2j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_np36o"]
 shader = ExtResource("2_cwojx")
@@ -1735,6 +1737,13 @@ max_health = 10
 [node name="InvincibleTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="FloatDamagePosition" type="Marker2D" parent="."]
+position = Vector2(0, -17)
+
+[node name="FloatDamagePlayer" type="Node" parent="."]
+script = ExtResource("14_6jg58")
+default_font = ExtResource("15_7cd2j")
 
 [connection signal="hurt" from="Graphics/HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="hit" from="Graphics/HitBox" to="." method="_on_hit_box_hit"]

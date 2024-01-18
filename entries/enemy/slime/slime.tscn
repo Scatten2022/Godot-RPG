@@ -873,4 +873,7 @@ slime = NodePath("../..")
 [node name="Stats" parent="." index="4"]
 max_health = 5
 
+[node name="FloatDamagePosition" parent="." index="5"]
+position = Vector2(0, -10)
+
 [connection signal="hurt" from="Graphics/HurtBox" to="." method="_on_hurt_box_hurt"]
