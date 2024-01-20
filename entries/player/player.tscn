@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bfd8y7t8ai7od"]
+[gd_scene load_steps=37 format=3 uid="uid://bfd8y7t8ai7od"]
 
 [ext_resource type="Texture2D" uid="uid://cjjbw1e8641j2" path="res://assets/pic/player.png" id="1_acf4d"]
 [ext_resource type="Script" path="res://entries/player/player.gd" id="1_vbk82"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://entries/player/state/player_die.gd" id="12_j53qb"]
 [ext_resource type="Script" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="14_6jg58"]
 [ext_resource type="FontFile" uid="uid://bestxwjeef6j5" path="res://assets/font/Xolonium-Regular.otf" id="15_7cd2j"]
+[ext_resource type="PackedScene" uid="uid://bdbg8d6rvyda8" path="res://entries/player/player_status_panel/player_status_panel.tscn" id="16_s20km"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_np36o"]
 shader = ExtResource("2_cwojx")
@@ -1744,6 +1745,15 @@ position = Vector2(0, -17)
 [node name="FloatDamagePlayer" type="Node" parent="."]
 script = ExtResource("14_6jg58")
 default_font = ExtResource("15_7cd2j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerStatusPanel" parent="CanvasLayer" node_paths=PackedStringArray("stats") instance=ExtResource("16_s20km")]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 29.0
+stats = NodePath("../../Stats")
 
 [connection signal="hurt" from="Graphics/HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="hit" from="Graphics/HitBox" to="." method="_on_hit_box_hit"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdvedgtwifkhl"]
+
+[ext_resource type="Script" path="res://entries/enemy/EnemyStatusPanel.gd" id="1_8rbxp"]
+[ext_resource type="Texture2D" uid="uid://dtmxofq8fe6ku" path="res://assets/pic/HUD.png" id="2_037o3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u75g"]
+atlas = ExtResource("2_037o3")
+region = Rect2(307, 6, 58, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgc7l"]
+atlas = ExtResource("2_037o3")
+region = Rect2(308, 103, 56, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8aax"]
+atlas = ExtResource("2_037o3")
+region = Rect2(308, 71, 56, 2)
+
+[node name="EnemyStatusPanel" type="HBoxContainer"]
+scale = Vector2(0.3, 0.5)
+script = ExtResource("1_8rbxp")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 0.855
+texture_over = SubResource("AtlasTexture_5u75g")
+texture_progress = SubResource("AtlasTexture_tgc7l")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="EasedHealthBar" type="TextureProgressBar" parent="HealthBar"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_c8aax")
+texture_progress_offset = Vector2(1, 1)
