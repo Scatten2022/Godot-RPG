@@ -29,7 +29,7 @@ func _on_hurt_box_hurt(hit_box: HitBox) -> void:
 		return
 	
 	pending_damage = Damage.new()
-	pending_damage.amount = 5
+	pending_damage.amount = 2
 	pending_damage.source = hit_box.owner
 	float_damage_player.display_damage_number(pending_damage.amount, float_damage_position.global_position, Color.BLUE)
 	shake_camera.emit()

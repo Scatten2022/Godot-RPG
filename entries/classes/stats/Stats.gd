@@ -1,6 +1,8 @@
 class_name Stats
 extends Node
 
+signal health_changed
+
 @export var max_health: int = 3
 
 @onready var health: int = max_health:
@@ -9,3 +11,4 @@ extends Node
 		if health == value:
 			return
 		health = value
+		health_changed.emit()

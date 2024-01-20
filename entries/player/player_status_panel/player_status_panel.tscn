@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdbg8d6rvyda8"]
+
+[ext_resource type="Script" path="res://entries/player/player_status_panel/PlayerStatusPanel.gd" id="1_eaawp"]
+[ext_resource type="Texture2D" uid="uid://dtmxofq8fe6ku" path="res://assets/pic/HUD.png" id="2_papb6"]
+[ext_resource type="Texture2D" uid="uid://cjjbw1e8641j2" path="res://assets/pic/player.png" id="3_35qfo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17r3l"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("2_papb6")
+region_rect = Rect2(323, 203, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttrtm"]
+atlas = ExtResource("3_35qfo")
+region = Rect2(18, 22, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u75g"]
+atlas = ExtResource("2_papb6")
+region = Rect2(307, 21, 58, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgc7l"]
+atlas = ExtResource("2_papb6")
+region = Rect2(308, 118, 56, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8aax"]
+atlas = ExtResource("2_papb6")
+region = Rect2(308, 86, 56, 4)
+
+[node name="PlayerStatusPanel" type="HBoxContainer"]
+script = ExtResource("1_eaawp")
+
+[node name="AvatarBox" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17r3l")
+
+[node name="Avatar" type="TextureRect" parent="AvatarBox"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ttrtm")
+stretch_mode = 5
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 0.8
+texture_over = SubResource("AtlasTexture_5u75g")
+texture_progress = SubResource("AtlasTexture_tgc7l")
+texture_progress_offset = Vector2(1, 1)
+
+[node name="EasedHealthBar" type="TextureProgressBar" parent="HealthBar"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_c8aax")
+texture_progress_offset = Vector2(1, 1)
