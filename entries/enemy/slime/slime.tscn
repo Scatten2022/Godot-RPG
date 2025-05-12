@@ -2,16 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://cnqn6bw8fcilo" path="res://entries/enemy/enemy.tscn" id="1_570ge"]
 [ext_resource type="Texture2D" uid="uid://buaxyq6htsyg0" path="res://assets/pic/slime.png" id="2_k6hny"]
-[ext_resource type="Script" path="res://entries/enemy/slime/slime.gd" id="2_t5fx0"]
-[ext_resource type="Shader" path="res://entries/enemy/slime/shader/slime_damage.gdshader" id="3_5am7p"]
-[ext_resource type="Script" path="res://entries/classes/states/StateMachine.gd" id="4_ovvsn"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_move.gd" id="5_ak43h"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_idle.gd" id="6_xg18b"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_follow.gd" id="7_dhfd2"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_base_state.gd" id="8_hgd5e"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_attack.gd" id="9_ek1bn"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_hit.gd" id="10_eyffd"]
-[ext_resource type="Script" path="res://entries/enemy/slime/state/slime_die.gd" id="11_twb0b"]
+[ext_resource type="Script" uid="uid://b0hnekc8p7iys" path="res://entries/enemy/slime/slime.gd" id="2_t5fx0"]
+[ext_resource type="Shader" uid="uid://bw7mcqicwkhgn" path="res://entries/enemy/slime/shader/slime_damage.gdshader" id="3_5am7p"]
+[ext_resource type="Script" uid="uid://btvw6b10keqne" path="res://entries/classes/states/StateMachine.gd" id="4_ovvsn"]
+[ext_resource type="Script" uid="uid://b6dtp5bytsr6r" path="res://entries/enemy/slime/state/slime_move.gd" id="5_ak43h"]
+[ext_resource type="Script" uid="uid://ub2kiijodkos" path="res://entries/enemy/slime/state/slime_idle.gd" id="6_xg18b"]
+[ext_resource type="Script" uid="uid://bt61mwy5nm6y8" path="res://entries/enemy/slime/state/slime_follow.gd" id="7_dhfd2"]
+[ext_resource type="Script" uid="uid://bcnsa60pf2spy" path="res://entries/enemy/slime/state/slime_base_state.gd" id="8_hgd5e"]
+[ext_resource type="Script" uid="uid://bl6ilcntk7jsm" path="res://entries/enemy/slime/state/slime_attack.gd" id="9_ek1bn"]
+[ext_resource type="Script" uid="uid://40h6suhogn1c" path="res://entries/enemy/slime/state/slime_hit.gd" id="10_eyffd"]
+[ext_resource type="Script" uid="uid://d4eylv7n6gxcr" path="res://entries/enemy/slime/state/slime_die.gd" id="11_twb0b"]
 [ext_resource type="PackedScene" uid="uid://cdvedgtwifkhl" path="res://entries/enemy/enemy_status_panel.tscn" id="13_hao5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qpeem"]
@@ -802,12 +802,12 @@ tracks/10/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1jx0s"]
 _data = {
-"RESET": SubResource("Animation_x5g1h"),
-"attack": SubResource("Animation_lps5n"),
-"die": SubResource("Animation_nvjuo"),
-"hit": SubResource("Animation_l3fea"),
-"idle": SubResource("Animation_xybn2"),
-"move": SubResource("Animation_x58ri")
+&"RESET": SubResource("Animation_x5g1h"),
+&"attack": SubResource("Animation_lps5n"),
+&"die": SubResource("Animation_nvjuo"),
+&"hit": SubResource("Animation_l3fea"),
+&"idle": SubResource("Animation_xybn2"),
+&"move": SubResource("Animation_x58ri")
 }
 
 [node name="Slime" groups=["Slime"] instance=ExtResource("1_570ge")]

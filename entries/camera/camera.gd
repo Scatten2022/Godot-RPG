@@ -48,4 +48,3 @@ func shake(time: float = DEFAULT_SHAKE_TIMER, x: float = DEFAULT_X_OFFSET, y: fl
 	x_offset = x
 	y_offset = y
 	set_process(true)
-

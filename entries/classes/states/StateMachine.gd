@@ -42,6 +42,3 @@ func call_init_state() -> void:
 func process_last_frame_of_loop_animation() -> void:
 	if current_state:
 		current_state.Process_last_frame_of_loop_animation()
-
-
-

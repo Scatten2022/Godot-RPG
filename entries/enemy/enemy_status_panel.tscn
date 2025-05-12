@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdvedgtwifkhl"]
 
-[ext_resource type="Script" path="res://entries/enemy/EnemyStatusPanel.gd" id="1_8rbxp"]
+[ext_resource type="Script" uid="uid://cyjmv8hii86ir" path="res://entries/enemy/EnemyStatusPanel.gd" id="1_8rbxp"]
 [ext_resource type="Texture2D" uid="uid://dtmxofq8fe6ku" path="res://assets/pic/HUD.png" id="2_037o3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5u75g"]
