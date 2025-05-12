@@ -1,19 +1,19 @@
 [gd_scene load_steps=37 format=3 uid="uid://bfd8y7t8ai7od"]
 
 [ext_resource type="Texture2D" uid="uid://cjjbw1e8641j2" path="res://assets/pic/player.png" id="1_acf4d"]
-[ext_resource type="Script" path="res://entries/player/player.gd" id="1_vbk82"]
-[ext_resource type="Shader" path="res://entries/player/shader/player_damage.gdshader" id="2_cwojx"]
-[ext_resource type="Script" path="res://entries/classes/hurt_box/HurtBox.gd" id="3_2ypto"]
-[ext_resource type="Script" path="res://entries/classes/states/StateMachine.gd" id="3_blqql"]
-[ext_resource type="Script" path="res://entries/classes/hit_box/HitBox.gd" id="4_26ytl"]
-[ext_resource type="Script" path="res://entries/player/state/player_move.gd" id="4_buuvu"]
-[ext_resource type="Script" path="res://entries/player/state/player_idle.gd" id="5_tl85r"]
-[ext_resource type="Script" path="res://entries/player/state/player_attack.gd" id="8_5w5by"]
-[ext_resource type="Script" path="res://entries/player/state/player_base_state.gd" id="10_6kr6m"]
-[ext_resource type="Script" path="res://entries/classes/stats/Stats.gd" id="10_dju1o"]
-[ext_resource type="Script" path="res://entries/player/state/player_hurt.gd" id="11_uag4r"]
-[ext_resource type="Script" path="res://entries/player/state/player_die.gd" id="12_j53qb"]
-[ext_resource type="Script" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="14_6jg58"]
+[ext_resource type="Script" uid="uid://cdwnrgcytt6yr" path="res://entries/player/player.gd" id="1_vbk82"]
+[ext_resource type="Shader" uid="uid://jkjq56052bj7" path="res://entries/player/shader/player_damage.gdshader" id="2_cwojx"]
+[ext_resource type="Script" uid="uid://dbstkx657jlid" path="res://entries/classes/hurt_box/HurtBox.gd" id="3_2ypto"]
+[ext_resource type="Script" uid="uid://btvw6b10keqne" path="res://entries/classes/states/StateMachine.gd" id="3_blqql"]
+[ext_resource type="Script" uid="uid://bey4e157xu8g8" path="res://entries/classes/hit_box/HitBox.gd" id="4_26ytl"]
+[ext_resource type="Script" uid="uid://dopj342oqw36e" path="res://entries/player/state/player_move.gd" id="4_buuvu"]
+[ext_resource type="Script" uid="uid://wujg5372mto3" path="res://entries/player/state/player_idle.gd" id="5_tl85r"]
+[ext_resource type="Script" uid="uid://crergap1elvpm" path="res://entries/player/state/player_attack.gd" id="8_5w5by"]
+[ext_resource type="Script" uid="uid://c3q8qqj53xjpp" path="res://entries/player/state/player_base_state.gd" id="10_6kr6m"]
+[ext_resource type="Script" uid="uid://bjgk7gms6qimj" path="res://entries/classes/stats/Stats.gd" id="10_dju1o"]
+[ext_resource type="Script" uid="uid://bnxebxgtrhcw" path="res://entries/player/state/player_hurt.gd" id="11_uag4r"]
+[ext_resource type="Script" uid="uid://bsmfgjqb5csq4" path="res://entries/player/state/player_die.gd" id="12_j53qb"]
+[ext_resource type="Script" uid="uid://bhf5jbpki6shv" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="14_6jg58"]
 [ext_resource type="FontFile" uid="uid://bestxwjeef6j5" path="res://assets/font/Xolonium-Regular.otf" id="15_7cd2j"]
 [ext_resource type="PackedScene" uid="uid://bdbg8d6rvyda8" path="res://entries/player/player_status_panel/player_status_panel.tscn" id="16_s20km"]
 
@@ -1633,20 +1633,20 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gom7l"]
 _data = {
-"RESET": SubResource("Animation_e1yqj"),
-"attack_down": SubResource("Animation_htry7"),
-"attack_side": SubResource("Animation_xd737"),
-"attack_up": SubResource("Animation_7lfb3"),
-"die": SubResource("Animation_kr3o1"),
-"hurt_down": SubResource("Animation_4uev6"),
-"hurt_side": SubResource("Animation_ygu7d"),
-"hurt_up": SubResource("Animation_ydh65"),
-"idle_down": SubResource("Animation_smdu2"),
-"idle_side": SubResource("Animation_1d3el"),
-"idle_up": SubResource("Animation_lye6f"),
-"move_down": SubResource("Animation_ihscr"),
-"move_side": SubResource("Animation_mde02"),
-"move_up": SubResource("Animation_5caor")
+&"RESET": SubResource("Animation_e1yqj"),
+&"attack_down": SubResource("Animation_htry7"),
+&"attack_side": SubResource("Animation_xd737"),
+&"attack_up": SubResource("Animation_7lfb3"),
+&"die": SubResource("Animation_kr3o1"),
+&"hurt_down": SubResource("Animation_4uev6"),
+&"hurt_side": SubResource("Animation_ygu7d"),
+&"hurt_up": SubResource("Animation_ydh65"),
+&"idle_down": SubResource("Animation_smdu2"),
+&"idle_side": SubResource("Animation_1d3el"),
+&"idle_up": SubResource("Animation_lye6f"),
+&"move_down": SubResource("Animation_ihscr"),
+&"move_side": SubResource("Animation_mde02"),
+&"move_up": SubResource("Animation_5caor")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]

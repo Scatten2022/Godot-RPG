@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnqn6bw8fcilo"]
 
-[ext_resource type="Script" path="res://entries/enemy/enemy.gd" id="1_rusa7"]
-[ext_resource type="Script" path="res://entries/classes/hit_box/HitBox.gd" id="2_txl4x"]
-[ext_resource type="Script" path="res://entries/classes/hurt_box/HurtBox.gd" id="3_gw25y"]
-[ext_resource type="Script" path="res://entries/classes/stats/Stats.gd" id="4_trsda"]
-[ext_resource type="Script" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="5_qvtgj"]
+[ext_resource type="Script" uid="uid://24nm3gtbgroe" path="res://entries/enemy/enemy.gd" id="1_rusa7"]
+[ext_resource type="Script" uid="uid://bey4e157xu8g8" path="res://entries/classes/hit_box/HitBox.gd" id="2_txl4x"]
+[ext_resource type="Script" uid="uid://dbstkx657jlid" path="res://entries/classes/hurt_box/HurtBox.gd" id="3_gw25y"]
+[ext_resource type="Script" uid="uid://bjgk7gms6qimj" path="res://entries/classes/stats/Stats.gd" id="4_trsda"]
+[ext_resource type="Script" uid="uid://bhf5jbpki6shv" path="res://entries/classes/float_damage_player/FloatDamagePlayer.gd" id="5_qvtgj"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 y_sort_enabled = true
