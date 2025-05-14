@@ -836,7 +836,7 @@ shape = SubResource("CircleShape2D_caed2")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_1jx0s")
+&"": SubResource("AnimationLibrary_1jx0s")
 }
 
 [node name="StateMachine" type="Node" parent="." index="3" node_paths=PackedStringArray("initial_state")]
