@@ -1700,7 +1700,7 @@ shape = SubResource("RectangleShape2D_oonnw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gom7l")
+&"": SubResource("AnimationLibrary_gom7l")
 }
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

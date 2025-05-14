@@ -4,21 +4,24 @@ extends Camera2D
 @export var DEFAULT_X_OFFSET: float = 1
 @export var DEFAULT_Y_OFFSET: float = 1
 @export var player: Player
-@export var tile_map: TileMap
+@export var base_map_layer: TileMapLayer
 
 var shake_timer: float
 var _shake_count_timer: float = 0
-var _shake_offset:Vector2 = offset
+var _shake_offset: Vector2 = offset
 var x_offset: float = 2
 var y_offset: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	assert(player, "You must set a player for camera!")
+	assert(base_map_layer, "You must set a map_layer for camera!")
+	
 	if player:
 		player.connect("shake_camera", shake)
-	if tile_map:
-		var used := tile_map.get_used_rect()
-		var tile_size := tile_map.tile_set.tile_size
+	if base_map_layer:
+		var used := base_map_layer.get_used_rect()
+		var tile_size := base_map_layer.tile_set.tile_size
 		
 		limit_top = used.position.y * tile_size.y + tile_size.y / 3
 		limit_bottom = used.end.y * tile_size.y - tile_size.y / 3

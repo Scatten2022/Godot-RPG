@@ -16,6 +16,7 @@ var count: int = 0
 signal shake_camera(time: float, x_offset: float, y_offset: float)
 
 func _ready() -> void:
+	assert(state_machine, "Plase check state_machine in player!")
 	state_machine.call_init_state()
 
 func _process(delta: float) -> void:

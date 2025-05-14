@@ -30,4 +30,3 @@ func Physics_update(delta: float) -> void:
 	
 		player.velocity = Vector2.ZERO
 		player.move_and_slide()
-
